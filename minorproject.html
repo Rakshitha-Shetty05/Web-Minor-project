@@ -1,0 +1,577 @@
+<html>
+      <head>
+      <title>Foodie blog</title>
+      <style>
+    *{
+          margin:0;
+          padding:0;
+      }
+       body
+      {
+         background-color: white;
+         font-family: sans-serif;
+      }
+      .top-nav-bar
+      {
+         height: 57px;
+         top: 0;
+         position: sticky;
+         background: #fff;       #background of search bar
+         margin-bottom: 20px;
+         border-bottom: 3px solid tomato;
+         z-index: 2;
+      }
+      .logo
+      {
+         height: 40px;
+         margin: 5px 10px;
+      }
+     .form-control
+     {
+         margin-top: 9px;
+         margin-left: 30px;
+         border: 1px solid tomato !important;
+         border-top-left-radius: 20px !important;
+         border-bottom-left-radius: 20px !important;
+         border-bottom-right-radius: 0 !important;
+         border-top-right-radius: 0 !important;
+         box-shadow: none !important;
+      }
+     .input-group-text
+     {
+         background: tomato !important;
+         border: 1px solid tomato !important;
+         margin: 8.5px 10px 3px 0 !important;
+         border-top-left-radius: 0px !important;
+         border-bottom-left-radius: 0px !important;
+         border-bottom-right-radius: 20px !important;
+         border-top-right-radius: 20px !important;
+         cursor: pointer;
+      }
+      .search-box
+     {
+         display: inline-flex;
+         width: 60%;
+     }
+     .fa-search
+     {
+         color: black;
+     }
+     .menu-bar
+    {
+         width: 40%;
+         height: 57px;
+         float: right;
+    }
+    .menu-bar ul
+   {
+         display: inline-flex;
+         float:right;
+    }
+    .menu-bar ul li
+   {
+         border-left: 1px solid tomato;
+         list-style-type: none;
+         padding: 15px 35px;
+         text-align: center;
+         background-color: tomato;
+         cursor: pointer;
+    }
+    .menu bar ul li a
+    {
+         font-size:  16px;
+         font-weight: bold;
+         color: #fff;
+         text-decoration: none;
+    }
+    .fa-shopping-basket
+    {
+         margin-right:  5px;
+     }
+     . fa-home
+    {
+         margin-right:  5px;
+    }
+    .fa-volume-control-phone
+    {
+        margin-right:  5px;
+    }
+
+    .side-menu
+   {
+        height:  79%;
+        width:  15%;
+        font-size: 14px;
+        float: left;
+        z-index:  2;
+        background-color: tomato;
+        color:black;
+    }
+    .side-menu ul 
+   {
+        margin-left: 10px;
+    }
+    .side-menu ul li
+   {
+        list-style-type: none;
+        font-weight:  bold;
+        margin-top: 10px;
+        cursor: pointer;
+    }
+    .side-menu ul li:hover
+   {
+        color:tomato;
+        background:black;
+   }
+      .side-menu ul li ul
+      {
+          display:none;
+          z-index: 10;
+          top: 77px;
+      }
+      .side-menu ul li:hover ul
+      {
+          display: block;
+          height: 400px;
+          margin-left: 14%;
+          padding: 0 100px 10px 10px;
+          position: fixed;
+          background: tomato;
+          color:black;
+          box-shadow: 1px 1px 4px 1px rgba(0,0,0,0.5);
+      }
+      .fa-angle-right
+     {
+         margin-top: 4px;
+         margin-right: 8px;
+         float: right;
+     }
+      #menu-btn, #close-btn
+     {
+          font-size: 30px;
+          margin: 10px;
+          color:teal;
+          display: none;
+      }
+      .slider
+     { 
+          width: 80%;
+          margin-left: 18%;
+          padding:0 10px;
+          margin-top:5%;
+      }
+       .carousel
+      {
+          box-shadow: 1px 1px 4px 1px tomato;     
+      }
+       .carousel-indicators
+      {
+          z-index: 1!important;  
+      }
+      .featured-categories
+      {
+         margin:50px 0;    
+      }
+      .featured-categories img
+     {
+         width:100%;
+         padding: 20px;
+         transition:1s;
+         cursor:pointer;
+     }
+      .featured-categories img:hover
+     {
+         transform: scale(1.1);
+      }
+     .title-box
+     {
+         background:tomato;
+         color:black;
+         width:180px;
+         padding:4px 10px;
+         height:40px;
+         margin-bottom: 30px;
+         display:flex;
+     }
+     .title-box::after
+     {
+         content: ' ' ;
+         border-top:40px solid tomato;
+         border-right:50px solid transparent;
+         position:absolute;
+         display:flex;
+         margin-top:-4px;
+         margin-left: 170px;
+     }
+     .food-top img
+     {
+         width: 100%;
+         box-shadow: 1px 1px 4px 1px tomato;     
+     }
+      .overlay-right
+     {
+         display: block;
+         opacity: 0;
+         position:absolute;
+         top:10%;
+         margin-left:0;
+         width:70px;
+      }
+       .overlay-right .fa
+      {
+         cursor:pointer;
+         background-color: #fff;
+         color:#000;
+         height:35px;
+         width:35px;
+         font-size:20px;
+         padding:7px;
+         margin-top:5%;
+         margin-bottom:5%;
+      }
+      .overlay-right .btn-secondary
+      {
+         background: none !important;
+         border:none !important;
+         box-shadow: none !important;
+      }
+      .food-top hover .overlay-right
+      {
+          opacity: 1;
+          margin-left: 5%;
+          transition: 0.5s;
+       }
+      .food-bottom .fa
+      {
+         color:orange;
+         font-size: 10px;
+      }
+      .food-bottom h3
+      {
+          font-size: 20px;
+          font-weight: bold;
+      }
+      .food-bottom h5
+      {
+           font-size:15px;
+           padding-bottom:10px;
+       }
+       </style>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+      </head>
+
+      <body>
+
+      <div class="top-nav-bar">
+             <div class="search-box">
+                 
+                    <img src="1.jpg" class="logo">
+                    <input type="text" class="form-control">
+                    <span class="input-group-text"><i class="fa fa-search"></i></span>
+            </div>
+
+            <div class="menu-bar">
+               <ul>
+                 <li><a href="#"><i class="fa fa-home" style="color:black"></i><font color=black>HOME</font></a></li>
+                 <li><a href="#"><i class="fa fa-shopping-basket" style="color:black"></i><font color=black>CART</font></a></li>
+                 <li><a href="#"><i class="fa fa-volume-control-phone" style="color:black"></i><font color=black>CONTACT</font></a></li>
+               </ul>
+            </div>
+      </div>
+
+
+      <section class="header">
+           <div class="side-menu" id="side-menu">
+             <ul>
+
+                <li>Burger<i class="fa fa-angle-right"></i>
+                   <ul>
+                      <li>Portobello mushroom</li>
+                      <li>Veggie</li>
+                      <li>Elk</li>
+                      <li>Black bean</li>
+                  </ul>
+                </li>
+
+                <li>Pizza<i class="fa fa-angle-right" ></i>
+                  <ul>
+                     <li>Peppy Paneer</li>
+                     <li>Deluxe Veggie</li>
+                     <li>Mexican cheese wave</li>
+                     <li>Cheese n corn</li>
+                  </ul>
+               </li>
+
+               <li>Noodles & Pasta<i class="fa fa-angle-right" ></i>
+                 <ul>
+                    <li>Bucatini</li>
+                    <li>Orecchiette</li>
+                    <li>Gnocchi</li>
+                    <li>Campanelle</li>
+                 </ul>
+              </li>
+
+              <li>Sandwiches<i class="fa fa-angle-right" ></i>
+                <ul>
+                    
+                     <li>Cheese & hang</li>
+                    <li>Ham & onion</li>
+                    <li>Carrot & tomato</li>
+                    <li>Tuna & Cucumber</li>
+                </ul>
+              </li>
+
+              <li>Pretzel<i class="fa fa-angle-right" ></i>
+                <ul>
+                    <li>Peanut butter</li>
+                    <li>Cajun</li>
+                    <li>Rolo pretzel turtles</li>
+                    <li>Pretzel dogs</li>
+                </ul>
+              </li>
+      
+              <li>Desserts<i class="fa fa-angle-right" ></i>
+                 <ul>
+                    <li>Custard & pussing</li>
+                    <li>Biscuits</li>
+                    <li>Cakes & pie</li>
+                    <li>Icecream</li>
+                 </ul>
+              </li>
+
+
+              <li>Saucages<i class="fa fa-angle-right" ></i>
+                <ul>
+                   <li>Italian</li>
+                   <li>Chorizo</li>
+                   <li>Bratwurst</li>
+                   <li>Kielbasa</li>
+               </ul>
+             </li>
+
+
+             <li>Muffins<i class="fa fa-angle-right" ></i>
+               <ul>
+                   <li>Blueberry</li>
+                   <li>Chocolate chip</li>
+                   <li>Banana Nut</li>
+                   <li>Coffee cake</li>
+               </ul>
+            </li>
+
+             <li>Taco<i class="fa fa-angle-right" ></i>
+               <ul>
+                   <li>Al Pastor</li>
+                   <li>Lengua</li>
+                   <li>Carnitas</li>
+                   <li>Vegetal</li>
+               </ul>
+            </li>
+      
+             <li>Burito<i class="fa fa-angle-right" ></i>
+               <ul>
+                   <li>Bean-and-Cheese</li>
+                   <li>Juarez</li>
+                   <li>Mission</li>
+                   <li>Carne Asada</li>
+               </ul>
+            </li>
+       
+        </ul>
+
+    </div>
+
+    <div class="slider">
+
+      <div id="slider" class="carousel slide carousel-fade" data-ride="carousel">
+           <div class="carousel-inner">
+                <div class="carousel-item active">
+                <img src="3.jpg" class="d-block w-100" height="519" width="519">
+                </div>
+
+                <div class="carousel-item">
+                <img src="11.jpg" class="d-block w-100" height="519" width="519" >
+                </div>
+
+                <div class="carousel-item">
+                <img src="8.jpg" class="d-block w-100" height="519" width="519">
+                </div>
+
+                <div class="carousel-item">
+                <img src="6.jpg" class="d-block w-100" height="519" width="519">
+                </div>
+           
+                <div class="carousel-item">
+                <img src="5.jpg" class="d-block w-100" height="519" width="519">
+                </div>
+     
+           </div>
+
+          <ol class="carousel-indicators">
+             <li data-target="#slider" data-slide-to="0" class="active"></li>
+             <li data-target="#slider" data-slide-to="1"></li>
+             <li data-target="#slider" data-slide-to="2"></li>
+             <li data-target="#slider" data-slide-to="3"></li>
+             <li data-target="#slider" data-slide-to="4"></li>
+          </ol>
+  
+        </div>
+      </div>
+   </section>
+
+   <section class="featured-categories">
+      
+      <div class="container">
+         <div class="row">
+
+           <div class="col-md-4">
+           <img src="13.jpg" height="250" width="250">
+           </div>
+
+           <div class="col-md-4">
+           <img src="9.jpg" height="250" width="250">
+           </div>
+
+           <div class="col-md-4">
+           <img src="7.jpg" height="250" width="250">
+           </div>
+
+        </div>
+     </div>
+   </section>
+
+   <section class="on-sale">
+       <div class="container">
+            <div class="title-box">
+                  <h2>On Sale</h2>
+            </div>
+            <div class="row">
+
+             <div class="col-md-3">
+               <div class="food-top">
+                  <img src="4.jpg"  height="200" width="200">
+                  <div class="overlay-right">
+                     <button type="button" class="btn btn-secondary" title="Quick Shop">
+                     <i class="fa fa-eye"></i>
+                     </button>
+
+                     <button type="button" class="btn btn-secondary" title="Add to Wishlist">
+                     <i class="fa fa-heart-o"></i>
+                     </button>
+
+                     <button type="button" class="btn btn-secondary" title="Add to Cart">
+                     <i class="fa fa-shopping-cart"></i>
+                     </button>
+                 </div>
+             </div>
+
+             <div class="food-bottom text-center">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-half-o"></i>
+                <h3>Crepes</h3>
+                <h5>$16.00</h5>
+             </div>
+          </div>
+
+          <div class="col-md-3">
+             <div class="food-top">
+                  <img src="14.png"  height="200" width="200">
+                     <div class="overlay-right">
+                        <button type="button" class="btn btn-secondary" title="Quick Shop">
+                        <i class="fa fa-eye"></i>
+                        </button>
+
+                        <button type="button" class="btn btn-secondary" title="Add to Wishlist">
+                        <i class="fa fa-heart-o"></i>
+                        </button>
+
+                        <button type="button" class="btn btn-secondary" title="Add to Cart">
+                        <i class="fa fa-shopping-cart"></i>
+                        </button>
+                     </div>
+               </div>
+
+               <div class="food-bottom text-center">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <h3>Burger</h3>
+                    <h5>$18.00</h5>
+               </div>
+          </div>
+
+          <div class="col-md-3">
+             <div class="product-top">
+                <img src="12.jpg"  height="200" width="200">
+                    <div class="overlay-right">
+                    <button type="button" class="btn btn-secondary" title="Quick Shop">
+                    <i class="fa fa-eye"></i>
+                    </button>
+
+                    <button type="button" class="btn btn-secondary" title="Add to Wishlist">
+                    <i class="fa fa-heart-o"></i>
+                    </button>
+
+                    <button type="button" class="btn btn-secondary" title="Add to Cart">
+                    <i class="fa fa-shopping-cart"></i>
+                    </button>
+
+               </div>
+           </div>
+
+           <div class="food-bottom text-center">
+               <i class="fa fa-star"></i>
+               <i class="fa fa-star"></i>
+               <i class="fa fa-star"></i>
+               <i class="fa fa-star"></i>
+               <i class="fa fa-star-half-o"></i>
+               <h3>Veg Nuggets</h3>
+               <h5>$20.00</h5>
+           </div>
+         </div>
+
+         <div class="col-md-3">
+            <div class="food-top">
+                <img src="2.jpg"  height="200" width="200">
+                   <div class="overlay-right">
+                   <button type="button" class="btn btn-secondary" title="Quick Shop">
+                   <i class="fa fa-eye"></i>
+                   </button>
+
+                   <button type="button" class="btn btn-secondary" title="Add to Wishlist">
+                   <i class="fa fa-heart-o"></i>
+                   </button>
+
+                   <button type="button" class="btn btn-secondary" title="Add to Cart">
+                   <i class="fa fa-shopping-cart"></i>
+                   </button>
+               </div>
+           </div>
+
+           <div class="food-bottom text-center">
+                 <i class="fa fa-star"></i>
+                 <i class="fa fa-star"></i>
+                 <i class="fa fa-star"></i>
+                 <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                 <h3>Waffle</h3>
+                 <h5>$21.00</h5>
+             </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    </script>
+  </body>
+</html>
